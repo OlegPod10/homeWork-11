@@ -1,7 +1,4 @@
-
-
 // Задание 1
-
 
 let counter = 0;
 while (counter < 5) {
@@ -27,27 +24,39 @@ while (counter < 5) {
     };
 };
 
-
-// Задача 2  
-
+// Задача 2
 
 let password = 123;
 let attempts = 3;
 let outProg = 1;
+let pukCode = 321;
+let attemptsPuk = 3;
+let outPuk = 1;
 while (attempts >= outProg) {
-    let inputPass = +prompt("Введите пароль:")
-    console.log(`Введённый пароль: ${inputPass}`)
-    if (inputPass == password) {
-        alert("Вы вошли")
-        console.log("Пороль верны, вход произведён")
-        break
+  let inputPass = +prompt("Введите пароль:");
+  console.log(`Введённый пароль: ${inputPass}`);
+  if (inputPass == password) {
+    alert("Вы вошли");
+    console.log("Пороль верны, вход произведён");
+    break;
+  } else if (attempts > outProg) {
+    alert(`У вас осталось ${attempts - outProg} попыток`);
+  } else {
+    alert("У вас закончились попытки!");
+    while (attemptsPuk >= outPuk) {
+      let inputPukCode = +prompt("Введите PUK что бы восстановить аккаунт:");
+      console.log(`Введённый PUK: ${inputPukCode}`);
+      if (inputPukCode == pukCode) {
+        alert("Вы востановили пароль!");
+      } else if (attemptsPuk > outPuk) {
+        alert(`У вас осталось ${attemptsPuk - outPuk} попыток`);
+      } else {
+        alert("У вас закончилис попытки аккаунт заблокирован");
+      }
+      outPuk += 1;
     }
-    else if (attempts > outProg) {
-        alert(`У вас осталось ${attempts - outProg} попыток`);
-    } else {
-        alert('У вас закончились попытки!');
-    }
-    outProg += 1;
+  }
+  outProg += 1;
 }
 
 // Задача 3
@@ -64,7 +73,7 @@ for (let i = numberFirst; i < (numberSecond + 1); i++) {
   );
 }
 
-// Задача 4
+// // Задача 4
 
 let numberOne = +prompt("Введите первое число:");
 let numberTwo = prompt("Введите второе число:");
@@ -87,4 +96,4 @@ if (numberOne < numberTwo) {
       break;
     }
   }
-} 
+}
